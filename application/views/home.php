@@ -119,7 +119,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
               <h1 class="text-white font-weight-light">Never Stop Exploring</h1>
               <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga est inventore ducimus repudiandae.</p>
-              <p><a href="#" class="btn btn-primary py-3 px-5 text-white">Book Now!</a></p>
+              <p><a href="#destination" class="btn btn-primary py-3 px-5 text-white">Book Now!</a></p>
 
             </div>
           </div>
@@ -133,7 +133,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="col-md-8" data-aos="fade-up" data-aos-delay="400">
               <h1 class="text-white font-weight-light">Love The Places</h1>
               <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga est inventore ducimus repudiandae.</p>
-              <p><a href="#" class="btn btn-primary py-3 px-5 text-white">Book Now!</a></p>
+              <p><a href="#destination" class="btn btn-primary py-3 px-5 text-white">Book Now!</a></p>
             </div>
           </div>
         </div>
@@ -141,16 +141,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     </div>
 
-    <div class="site-section">
+    <div class="site-section" id="destination">
       
       <div class="container">
+
         <div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center">
             <h2 class="font-weight-light text-black">Our Destinations</h2>
             <p class="color-black-opacity-5">Choose Your Next Destination</p>
           </div>
         </div>
+
         <div class="row">
+
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
             <a href="#" class="unit-1 text-center">
               <img src="<?php echo base_url() ?>assets/images/01-greece.jpg" alt="Image" class="img-fluid">
@@ -206,7 +209,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>
             </a>
           </div>
+
         </div>
+		
       </div>
     
     </div>
@@ -365,7 +370,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row text-center">
           <div class="col-md-12">
             <h2 class="mb-5 text-black">Want To Travel With Us?</h2>
-            <p class="mb-0"><a href="booking.html" class="btn btn-primary py-3 px-5 text-white">Book Now</a></p>
+            <p class="mb-0"><a href="#destination" class="btn btn-primary py-3 px-5 text-white">Book Now</a></p>
           </div>
         </div>
       </div>
@@ -376,7 +381,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row">
           <div class="col-lg-4">
             <div class="mb-5">
-              <h3 class="footer-heading mb-4">About Travelers</h3>
+              <h3 class="footer-heading mb-4">About Fams Traveller</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe pariatur reprehenderit vero atque, consequatur id ratione, et non dignissimos culpa? Ut veritatis, quos illum totam quis blanditiis, minima minus odio!</p>
             </div>
 
