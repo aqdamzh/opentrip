@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Travalers &mdash; Colorlib Website Template</title>
+    <title>Fams Traveller</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row align-items-center">
           
           <div class="col-6 col-xl-2">
-            <h1 class="mb-0"><a href="index.html" class="text-black h2 mb-0">Travelers</a></h1>
+            <h1 class="mb-0"><a href="index.html" class="text-black h2 mb-0">Fams Traveller</a></h1>
           </div>
           <div class="col-10 col-md-8 d-none d-xl-block">
             <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
@@ -69,9 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </li>
                 
                 <li><a href="discount.html">Discount</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                
+                <li><a href="about.html">About</a></li>               
                 <li><a href="contact.html">Contact</a></li>
                 <!-- <li><a href="booking.html">Book Online</a></li> -->
               </ul>
