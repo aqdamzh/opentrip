@@ -20,7 +20,7 @@ class Test extends CI_Controller {
 	 */
 	public function index()
 	{
-        $data['test'] = $this->destination_model->getDurationID(4,3);
+        $data['test'] = $this->destination_model->inDestination("LABUAN BAJO - SAILING KOM");
 		$this->load->view('test', $data);
 	}
 }

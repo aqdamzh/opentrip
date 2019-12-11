@@ -38,4 +38,14 @@ class Destination_model extends CI_Model {
     public function input_price($data){
         $this->db->insert('price', $data);
     }
+
+    public function inDestination($where){
+        $sql = "select * from destination where name = ?";
+        $query = $query = $this->db->query($sql, array($where));
+        return $query->num_rows();
+    }
+
+    public function input_destination($data){
+        $this->db->insert('destination', $data);
+    }
 }
