@@ -6,6 +6,18 @@ class Destination_model extends CI_Model {
         $query = $this->db->query($sql);
         return $query->result();
     }
+
+    public function getDestinations($limit, $start){
+        $sql = "select * from destination natural join country limit ? offset ?";
+        $query = $this->db->query($sql, array($limit, $start));
+        return $query->result();
+    }
+
+    public function countAllDestination(){
+        return $this->db->get('destination')->num_rows();
+    }
+
+    
     public function getPrice($id, $date){
         $sql = "select * from price natural join duration where destination_id = ? and departure = ?";
         $query = $this->db->query($sql, array($id, $date));

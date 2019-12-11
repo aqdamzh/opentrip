@@ -20,8 +20,10 @@ class Admin extends CI_Controller {
 	 */
 	public function index()
 	{
-        $data['destinations'] = $this->destination_model->getAllDestination();
+		$data['destinations'] = $this->destination_model->getAllDestination();
+		$this->load->view('header');
 		$this->load->view('add_price', $data);
+		$this->load->view('footer');
     }
     
     public function add_price(){
