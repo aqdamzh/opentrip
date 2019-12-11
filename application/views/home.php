@@ -136,24 +136,26 @@
       </div>
     </div>
 
-	<div class="site-blocks-cover overlay inner-page-cover" style="background-image: url(<?php echo base_url() ?>assets/images/hero_bg_2.jpg); background-attachment: fixed;">
+	<div class="site-blocks-cover overlay inner-page-cover" style="background-image: url(<?php echo base_url() ?>assets/images/bg-komodo.jpg); background-attachment: fixed;">
       <div class="container">
         <div class="row align-items-center justify-content-center text-center">
 
           <div class="col-md-7" data-aos="fade-up" data-aos-delay="400">
-            <a href="https://vimeo.com/channels/staffpicks/93951774" class="play-single-big mb-4 d-inline-block popup-vimeo"><span class="icon-play"></span></a>
-            <h2 class="text-white font-weight-light mb-5 h1">Experience Our Outstanding Services</h2>
+            <a href="https://www.youtube.com/watch?v=jir5p85wsMU" class="play-single-big mb-4 d-inline-block popup-vimeo"><span class="icon-play"></span></a>
+            <h2 class="text-white font-weight-light mb-5 h1">SAILING KOMODO</h2>
             
           </div>
         </div>
       </div>
     </div>  
 
+  
+
 	<div class="site-section block-13 bg-light">
 		<div class="container">
 			<div class="row justify-content-center mb-5">
 			<div class="col-md-7">
-				<h2 class="font-weight-light text-black text-center">Testimonials</h2>
+				<h2 class="font-weight-light text-black text-center">Testimoni</h2>
 			</div>
 			</div>
 
@@ -162,12 +164,10 @@
 			<div class="item">
 				<div class="container">
 				<div class="row">
-					<div class="col-lg-6 mb-5">
-					<img src="<?php echo base_url() ?>assets/images/img_1.jpg" alt="Image" class="img-md-fluid">
-					</div>
-					<div class="overlap-left col-lg-6 bg-white p-md-5 align-self-center">
-					<p class="text-black lead">&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique dolorem quisquam laudantium, incidunt id laborum, tempora aliquid labore minus. Nemo maxime, veniam! Fugiat odio nam eveniet ipsam atque, corrupti porro&rdquo;</p>
-					<p class="">&mdash; <em>James Martin</em>, <a href="#">Traveler</a></p>
+					<div class="col-lg-13 bg-transparent align-self-center">
+					<p class="text-black lead">&ldquo;Liburan sama Fams Traveller seru banget! Walaupun kita belum kenal
+            sama traveller lain tapi bisa dibikin asik dan tetap enjoy !&rdquo;</p>
+					<p class="">&mdash; <em>Andini</em>, <a href="#">Mahasiswa</a></p>
 					</div>
 				</div>
 				</div>
@@ -176,12 +176,10 @@
 			<div class="item">
 				<div class="container">
 				<div class="row">
-					<div class="col-lg-6 mb-5">
-					<img src="<?php echo base_url() ?>assets/images/img_2.jpg" alt="Image" class="img-md-fluid">
-					</div>
-					<div class="overlap-left col-lg-6 bg-white p-md-5 align-self-center">
-					<p class="text-black lead">&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique dolorem quisquam laudantium, incidunt id laborum, tempora aliquid labore minus. Nemo maxime, veniam! Fugiat odio nam eveniet ipsam atque, corrupti porro&rdquo;</p>
-					<p class="">&mdash; <em>Clair Augustin</em>, <a href="#">Traveler</a></p>
+					<div class="col-lg-13 bg-transparent align-self-center">
+					<p class="text-black lead">&ldquo;Tour guide Fams Traveller bikin kita betah liburan wkwk. 
+            Pelayanan Fams Traveller OK, harga bersahabat :))&rdquo;</p>
+					<p class="">&mdash; <em>Angga</em>, <a href="#">Karyawan</a></p>
 					</div>
 				</div>
 				</div>
@@ -190,12 +188,10 @@
 			<div class="item">
 				<div class="container">
 				<div class="row">
-					<div class="col-lg-6 mb-5">
-					<img src="<?php echo base_url() ?>assets/images/img_4.jpg" alt="Image" class="img-md-fluid">
-					</div>
-					<div class="overlap-left col-lg-6 bg-white p-md-5 align-self-center">
-					<p class="text-black lead">&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique dolorem quisquam laudantium, incidunt id laborum, tempora aliquid labore minus. Nemo maxime, veniam! Fugiat odio nam eveniet ipsam atque, corrupti porro&rdquo;</p>
-					<p class="">&mdash; <em>James Martin</em>, <a href="#">Traveler</a></p>
+					<div class="col-lg-13 bg-transparent align-self-center">
+					<p class="text-black lead">&ldquo;Gak nyesel milih Fams Traveller buat jasa open trip. 
+            Liburannya asik, dokumentasinya cakep, harga terjangkau pula :D&rdquo;</p>
+					<p class="">&mdash; <em>Diana</em>, <a href="#">Traveler</a></p>
 					</div>
 				</div>
 				</div>
@@ -205,13 +201,4 @@
 		</div>
     </div>
     
-    <div class="site-section border-top">
-      <div class="container">
-        <div class="row text-center">
-          <div class="col-md-12">
-            <h2 class="mb-5 text-black">Want To Travel With Us?</h2>
-            <p class="mb-0"><a href="#destination" class="btn btn-primary py-3 px-5 text-white">Book Now</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
+    
