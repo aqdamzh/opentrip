@@ -20,6 +20,21 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('home');
+		$data['destinations'] = $this->destination_model->getAllDestination();
+		$this->load->view('home', $data);
+	}
+
+	public function detail($destination_id){
+		$data['destination'] = $this->destination_model->getDestination($destination_id);
+		$data['prices'] = $this->destination_model->getPrice($destination_id, null);
+		$this->load->view('destination_detail', $data);
+	}
+
+	public function price_detail(){
+		$destination_id = $this->input->post('destination_id');
+		$date = $this->input->post('date');
+		$data['destination'] = $this->destination_model->getDestination($destination_id);
+		$data['prices'] = $this->destination_model->getPrice($destination_id, $date);
+		$this->load->view('destination_detail', $data);
 	}
 }
