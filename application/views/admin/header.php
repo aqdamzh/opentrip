@@ -75,9 +75,15 @@
           <div class="col-8 col-xl-2 text-right">
             <div class="d-none d-xl-inline-block">
               <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">
-                <li class="active">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login_akun">Login</button>
-                </li>
+                <?php if($this->session->userdata('email')) { ?>
+                  <li class="active">
+                    <a href="<?php echo base_url()?>auth/logout_admin"><button type="button" class="btn btn-primary">Logout</button></a>
+                  </li>
+                <?php } else{  ?>
+                  <li class="active">
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login_akun">Login</button>
+                  </li>
+                  <?php } ?>
               </ul>
             </div>
             <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
@@ -95,6 +101,7 @@
         </button>
       </div>
       <div class="modal-body">
+      <?php echo $this->session->flashdata('pesan') ?>
       <form method="post" action="<?php echo base_url('auth/login') ?>">
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>

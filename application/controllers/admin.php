@@ -21,7 +21,7 @@ class Admin extends CI_Controller {
 	public function index()
 	{
 		$data['destinations'] = $this->destination_model->getAllDestination();
-		$this->load->view('header');
+		$this->load->view('admin/header');
 		$this->load->view('admin/add_price', $data);
 		$this->load->view('footer');
 	}
@@ -58,7 +58,7 @@ class Admin extends CI_Controller {
 
 		$data['page'] = $this->uri->segment(3);
 		$data['destinations'] = $this->destination_model->getDestinations($config['per_page'], $data['page']);
-		$this->load->view('header');
+		$this->load->view('admin/header');
 		$this->load->view('admin/destination', $data);
 		$this->load->view('footer');
 
