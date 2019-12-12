@@ -154,16 +154,22 @@
       <div class="modal-body">
       <form>
         <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <label for="nama_depan">Nama Depan</label>
+          <input type="text" class="form-control" id="nama_depan">
+        </div>
+        <div class="form-group">
+          <label for="nama_belakang">Nama Belakang</label>
+          <input type="text" class="form-control" id="nama_belakang">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          placeholder="Email" name="email">
+          <?php echo form_error('email','<div class="text-danger small ml-2">','</div>'); ?>
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Password</label>
           <input type="password" class="form-control" id="exampleInputPassword1">
-        </div>
-        <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Remember me</label>
         </div>
         <button type="submit" class="btn btn-primary">Daftar</button>
         <button type="button" class="btn btn-link" data-toggle="modal" data-target="#login_akun"
