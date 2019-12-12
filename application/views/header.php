@@ -55,7 +55,7 @@
 
               <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
                 <li class="active">
-                  <a href="index.html">Home</a>
+                  <a href="<?php echo base_url() ?>">Home</a>
                 </li>
                 <li class="has-children">
                   <a href="destination.html">Destinasi</a>
@@ -76,7 +76,7 @@
             <div class="d-none d-xl-inline-block">
               <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">
                 <li class="active">
-                  <a href="index.html">Login</a>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login_akun">Login</button>
                 </li>
               </ul>
             </div>
@@ -84,5 +84,71 @@
           </div>
         </div>
       </div>
-      
-    </header>
+<!-- Modal -->
+<div class="modal fade" id="login_akun" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Remember me</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#daftar_akun"
+        data-dismiss="modal">Buat Akun</button>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>     
+
+<!-- Modal Register -->
+
+<div class="modal fade" id="daftar_akun" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Register</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Remember me</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Daftar</button>
+        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#login_akun"
+        data-dismiss="modal">Login Disini</button>
+      </form>
+      </div>
+    </div>
+  </div>
+</div> 
+       
+</header>
