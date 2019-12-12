@@ -113,4 +113,10 @@ class Admin extends CI_Controller {
 			echo "DESTINASI SUDAH ADA!"; die();
 		}
 	}
+
+	public function delete($destination_id){
+		$this->destination_model->deleteDestination($destination_id);
+		$this->destination_model->deleteDestination_price($destination_id);
+		redirect('admin/destination');
+	}
 }

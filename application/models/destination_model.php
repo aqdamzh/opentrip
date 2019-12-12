@@ -41,11 +41,21 @@ class Destination_model extends CI_Model {
 
     public function inDestination($where){
         $sql = "select * from destination where name = ?";
-        $query = $query = $this->db->query($sql, array($where));
+        $query = $this->db->query($sql, array($where));
         return $query->num_rows();
     }
 
     public function input_destination($data){
         $this->db->insert('destination', $data);
+    }
+
+    public function deleteDestination($data){
+        $sql = "delete from destination where destination_id = ? ";
+        $this->db->query($sql, array($data));
+    }
+
+    public function deleteDestination_price($data){
+        $sql = "delete from price where destination_id = ? ";
+        $this->db->query($sql, array($data));
     }
 }
