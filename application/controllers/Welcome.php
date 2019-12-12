@@ -50,7 +50,7 @@ class Welcome extends CI_Controller {
 
 		$data['page'] = $this->uri->segment(3);
 		$data['destinations'] = $this->destination_model->getDestinations($config['per_page'], $data['page']);
-		$this->load->view('header');
+		$this->load->view('pengguna/header');
 		$this->load->view('home', $data);
 		$this->load->view('footer');
 	}
@@ -58,7 +58,7 @@ class Welcome extends CI_Controller {
 	public function detail($destination_id){
 		$data['destination'] = $this->destination_model->getDestination($destination_id);
 		$data['prices'] = $this->destination_model->getPrice($destination_id, null);
-		$this->load->view('header');
+		$this->load->view('pengguna/header');
 		$this->load->view('destination_detail', $data);
 		$this->load->view('footer');
 	}
@@ -68,7 +68,7 @@ class Welcome extends CI_Controller {
 		$date = $this->input->post('date');
 		$data['destination'] = $this->destination_model->getDestination($destination_id);
 		$data['prices'] = $this->destination_model->getPrice($destination_id, $date);
-		$this->load->view('header');
+		$this->load->view('pengguna/header');
 		$this->load->view('destination_detail', $data);
 		$this->load->view('footer');
 	}

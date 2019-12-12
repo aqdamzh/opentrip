@@ -22,26 +22,35 @@ class Auth extends CI_Controller
 				    <span aria-hidden="true">&times;</span>
 				  </button>
 				</div>');
-				redirect('auth/login');
+				
 			}
 			else
 			{
-				$this->session->set_userdata('username',$auth->email);
+				$this->session->set_userdata('email',$auth->email);
 				$this->session->set_userdata('role_id',$auth->role_id);
 				switch ($auth->role_id) {
 					case 1:
-						redirect('admin/destination');
+						redirect('admin');
 						break;
 					case 2 :
-						redirect('home');
+						redirect('');
 					default:
 						
 						break;
 				}
 			}
 		}
-    }
-    
+	}
+	public function logout_pengguna()
+	{
+		$this->session->sess_destroy();
+		redirect('');
+	}
+	public function logout_admin()
+	{
+		$this->session->sess_destroy();
+		redirect('admin');
+	}
 }
 
 ?>

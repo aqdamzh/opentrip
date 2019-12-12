@@ -75,9 +75,29 @@
           <div class="col-8 col-xl-2 text-right">
             <div class="d-none d-xl-inline-block">
               <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">
-                <li class="active">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login_akun">Login</button>
-                </li>
+                <?php if($this->session->userdata('email')) { ?>
+                    <!--Disini buat header profil setelah login-->
+                    <li class="dropdown user user-menu ">
+                      <a href="#" class="dropdown-toggle text-dark" data-toggle="dropdown">              
+                        <img src="" class="user-image" alt="User Image">              
+                      </a>
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                          <a class="dropdown-item" href=""><!--gambar dari table-->
+                            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-200"></i>
+                             Profile
+                          </a>               
+                          <div class="dropdown-divider"></div>
+                          <?php echo anchor('auth/logout_admin','<span class="dropdown-item"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i>
+                          Logout</span>') ?>
+                            
+                        </div> 
+                    </li>
+                <?php } else{  ?>
+                  
+                  <li class="active">
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login_akun">Login</button>
+                  </li>
+                  <?php } ?>
               </ul>
             </div>
             <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
