@@ -76,10 +76,22 @@
             <div class="d-none d-xl-inline-block">
               <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">
                 <?php if($this->session->userdata('email')) { ?>
-                  <li class="active">
-                    <a href="<?php echo base_url()?>auth/logout_pengguna"><button type="button" class="btn btn-primary">Logout</button></a>
-                  
-                  </li>
+                    <!--Disini buat header profil setelah login-->
+                    <li class="dropdown user user-menu ">
+                      <a href="#" class="dropdown-toggle text-dark" data-toggle="dropdown">              
+                        <img src="" class="user-image" alt="User Image">              
+                      </a>
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                          <a class="dropdown-item" href=""><!--gambar dari table-->
+                            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-200"></i>
+                             Profile
+                          </a>               
+                          <div class="dropdown-divider"></div>
+                          <?php echo anchor('auth/logout_pengguna','<span class="dropdown-item"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i>
+                          Logout</span>') ?>
+                            
+                        </div> 
+                    </li>
                 <?php } else{  ?>
                   
                   <li class="active">
@@ -142,16 +154,22 @@
       <div class="modal-body">
       <form>
         <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <label for="nama_depan">Nama Depan</label>
+          <input type="text" class="form-control" id="nama_depan">
+        </div>
+        <div class="form-group">
+          <label for="nama_belakang">Nama Belakang</label>
+          <input type="text" class="form-control" id="nama_belakang">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          placeholder="Email" name="email">
+          <?php echo form_error('email','<div class="text-danger small ml-2">','</div>'); ?>
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Password</label>
           <input type="password" class="form-control" id="exampleInputPassword1">
-        </div>
-        <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Remember me</label>
         </div>
         <button type="submit" class="btn btn-primary">Daftar</button>
         <button type="button" class="btn btn-link" data-toggle="modal" data-target="#login_akun"
