@@ -76,10 +76,24 @@
             <div class="d-none d-xl-inline-block">
               <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">
                 <?php if($this->session->userdata('email')) { ?>
-                  <li class="active">
-                    <a href="<?php echo base_url()?>auth/logout_admin"><button type="button" class="btn btn-primary">Logout</button></a>
-                  </li>
+                    <!--Disini buat header profil setelah login-->
+                    <li class="dropdown user user-menu ">
+                      <a href="#" class="dropdown-toggle text-dark" data-toggle="dropdown">              
+                        <img src="" class="user-image" alt="User Image">              
+                      </a>
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                          <a class="dropdown-item" href=""><!--gambar dari table-->
+                            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-200"></i>
+                             Profile
+                          </a>               
+                          <div class="dropdown-divider"></div>
+                          <?php echo anchor('auth/logout_admin','<span class="dropdown-item"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i>
+                          Logout</span>') ?>
+                            
+                        </div> 
+                    </li>
                 <?php } else{  ?>
+                  
                   <li class="active">
                   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login_akun">Login</button>
                   </li>
@@ -101,7 +115,6 @@
         </button>
       </div>
       <div class="modal-body">
-      <?php echo $this->session->flashdata('pesan') ?>
       <form method="post" action="<?php echo base_url('auth/login') ?>">
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>

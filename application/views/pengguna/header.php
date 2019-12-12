@@ -90,7 +90,7 @@
                           <?php echo anchor('auth/logout_pengguna','<span class="dropdown-item"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i>
                           Logout</span>') ?>
                             
-                        </div>
+                        </div> 
                     </li>
                 <?php } else{  ?>
                   
