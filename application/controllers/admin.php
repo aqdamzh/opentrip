@@ -126,4 +126,24 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/destination_detail', $data);
 		$this->load->view('footer');
 	}
+
+	public function update_bg(){
+		$destination_id = $this->input->post('destination_id');
+		$background = $_FILES['background'];
+		if ($background=''){}else{
+			$config['upload_path'] = './assets/images';
+			$config['allowed_types'] = 'jpg|png|gif';
+			$this->load->library('upload',$config);
+			if(!$this->upload->do_upload('background')){
+				echo "Upload Gagal"; die();
+			}else{
+				$background=$this->upload->data('file_name');
+			}
+		}
+
+		$this->destination_model->up_destination_bg($background, $destination_id);
+		redirect('admin/detail_edit/'.$destination_id);
+
+
+	}
 }

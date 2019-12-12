@@ -6,16 +6,21 @@
             <div class="col-md-8" data-aos="fade-up" data-aos-delay="400">
               <h1 class="text-white font-weight-light"><?php echo $destination->name ?></h1>
               <div></span> <span class="text-white"><?php echo $destination->description ?></span></div>
-              <?php echo form_open_multipart('admin/update_bg'); ?>
-                <div class="form-group row">
-                    <label for="background" class="col-sm-2 col-form-label text-white">Update Background</label>
-                    <div class="col-sm-10">
-                    <input type="file" name="background" id="background" class="form-control">
-                    </div>
-                </div>
-            <?php echo form_close(); ?>
             </div>
           </div>
+          <?php echo form_open_multipart('admin/update_bg'); ?>
+                <div class="form-group row mt-1">
+                    <label for="background" class="col-sm-2 col-form-label text-primary"><strong>Update Background</strong></label>
+                    <div class="col-sm-6">
+                      <input type="hidden" name="destination_id" class="form-control" 
+                      value="<?php echo $destination->destination_id ?>">
+                      <input type="file" name="background" id="background" class="form-control">
+                    </div>
+                    <div class="col-sm-4">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+          <?php echo form_close(); ?>
         </div>
       </div>  
 
