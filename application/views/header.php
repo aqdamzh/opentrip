@@ -55,7 +55,7 @@
 
               <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
                 <li class="active">
-                  <a href="index.html">Home</a>
+                  <a href="<?php echo base_url() ?>">Home</a>
                 </li>
                 <li class="has-children">
                   <a href="destination.html">Destinasi</a>

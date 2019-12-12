@@ -58,4 +58,9 @@ class Destination_model extends CI_Model {
         $sql = "delete from price where destination_id = ? ";
         $this->db->query($sql, array($data));
     }
+
+    public function up_destination_bg($data, $where){
+        $sql = "update destination set background = ? where destination_id = ?";
+        $this->db->query($sql, array($data, $where));
+    }
 }

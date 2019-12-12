@@ -30,7 +30,7 @@
                         <td><?php echo $destination->name ?></td>
                         <td><?php echo $destination->country_id ?></td>
                         <td>
-                        <a href="#" class="badge badge-success">Edit</a>
+                        <a href="<?php echo base_url() ?>admin\detail_edit\<?php echo $destination->destination_id ?>" class="badge badge-success">Edit</a>
                         <a href="<?php echo base_url() ?>admin\delete\<?php echo $destination->destination_id ?>" 
                         class="badge badge-warning" onclick="javascript: return confirm('Anda yakin hapus?')">Delete</a>
                         </td>

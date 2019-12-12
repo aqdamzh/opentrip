@@ -119,4 +119,11 @@ class Admin extends CI_Controller {
 		$this->destination_model->deleteDestination_price($destination_id);
 		redirect('admin/destination');
 	}
+
+	public function detail_edit($destination_id){
+		$data['destination'] = $this->destination_model->getDestination($destination_id);
+		$this->load->view('header');
+		$this->load->view('admin/destination_detail', $data);
+		$this->load->view('footer');
+	}
 }
