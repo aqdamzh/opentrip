@@ -4,8 +4,8 @@
           <div class="row align-items-center justify-content-center text-center">
 
             <div class="col-md-8" data-aos="fade-up" data-aos-delay="400">
-              <h1 class="text-white font-weight-light">Book A Tour</h1>
-              <div><a href="index.html">Home</a> <span class="mx-2 text-white">&bullet;</span> <span class="text-white">Booking</span></div>
+              <h1 class="text-white font-weight-light"><?php echo $destination->name ?></h1>
+              <div></span> <span class="text-white"><?php echo $destination->description ?></span></div>
               
             </div>
           </div>
@@ -46,6 +46,7 @@
                       <th scope="col">Departure</th>
                       <th scope="col">Duration</th>
                       <th scope="col">Price</th>
+                      <th scope="col">Action</th>
                       </tr>
                   </thead>
                   <tbody>
@@ -54,6 +55,9 @@
                       <td><?php echo $price->departure ?></td>
                       <td><?php echo $price->day ?> day, <?php echo $price->night ?> night</td>
                       <td><?php echo $price->price ?></td>
+                      <td>
+                      <a href="#" class="badge badge-danger">Book Sekarang!</a>
+                      </td>
                       </tr>
                       <?php endforeach; ?>
                   </tbody>

@@ -29,7 +29,11 @@
                         <tr>
                         <td><?php echo $destination->name ?></td>
                         <td><?php echo $destination->country_id ?></td>
-                        <td>test</td>
+                        <td>
+                        <a href="#" class="badge badge-success">Edit</a>
+                        <a href="#" class="badge badge-warning" 
+                        onclick="javascript: return confirm('Anda yakin hapus?')">Delete</a>
+                        </td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>

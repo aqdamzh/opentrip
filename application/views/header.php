@@ -46,7 +46,7 @@
         <div class="row align-items-center">
           
           <div class="col-6 col-xl-2">
-            <a href="?php echo base_url() ?>" class="d-block">
+            <a href="<?php echo base_url() ?>" class="d-block">
               <img src="<?php echo base_url() ?>assets/images/logo.png" alt="Image" class="img-fluid">
             </a>
           </div>
