@@ -20,17 +20,9 @@ class Admin extends CI_Controller {
 	 */
 	public function index()
 	{
-		$data['destinations'] = $this->destination_model->getAllDestination();
-		$this->load->view('admin/header');
-		$this->load->view('admin/add_price', $data);
-		$this->load->view('footer');
-	}
-	
-	public function destination(){
-
 		$this->load->library('pagination');
 
-		$config['base_url'] = site_url('admin/destination');
+		$config['base_url'] = site_url('admin/index');
 		$config['total_rows'] = $this->destination_model->countAllDestination();
 		$config['per_page'] = 6;
 		$choice = $config["total_rows"] / $config["per_page"];
@@ -57,11 +49,11 @@ class Admin extends CI_Controller {
 		$this->pagination->initialize($config);
 
 		$data['page'] = $this->uri->segment(3);
-		$data['destinations'] = $this->destination_model->getDestinations($config['per_page'], $data['page']);
+		$data['destinations_p'] = $this->destination_model->getDestinations($config['per_page'], $data['page']);
+		$data['destinations'] = $this->destination_model->getAllDestination();
 		$this->load->view('admin/header');
-		$this->load->view('admin/destination', $data);
+		$this->load->view('admin/admin_view', $data);
 		$this->load->view('footer');
-
 	}
     
     public function add_price(){
