@@ -44,12 +44,12 @@ class Auth extends CI_Controller
 	public function logout_pengguna()
 	{
 		$this->session->sess_destroy();
-		redirect('');
+		redirect('Welcome/index');
 	}
 	public function logout_admin()
 	{
 		$this->session->sess_destroy();
-		redirect('admin');
+		redirect('Welcome/index');
 	}
 }
 

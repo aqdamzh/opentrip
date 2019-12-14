@@ -46,7 +46,7 @@
         <div class="row align-items-center">
           
           <div class="col-6 col-xl-2">
-            <a href="<?php echo base_url() ?>" class="d-block">
+            <a href="<?php echo base_url() ?>admin" class="d-block">
               <img src="<?php echo base_url() ?>assets/images/logo.png" alt="Image" class="img-fluid">
             </a>
           </div>
@@ -55,7 +55,7 @@
 
               <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
                 <li class="active">
-                  <a href="<?php echo base_url() ?>">Home</a>
+                  <a href="<?php echo base_url() ?>admin">Home</a>
                 </li>
                 <li class="has-children">
                   <a href="destination.html">Destinasi</a>
