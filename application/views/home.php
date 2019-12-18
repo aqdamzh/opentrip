@@ -41,7 +41,7 @@
         <?php foreach ($destinations as $destination) : ?>
 
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
-            <a href="<?php echo base_url() ?>Welcome/detail/<?php echo $destination->destination_id ?>" class="unit-1 text-center">
+            <a href="<?php echo base_url() ?>welcome/detail/<?php echo $destination->destination_id ?>" class="unit-1 text-center">
               <img src="<?php echo base_url() ?>assets/images/<?php echo $destination->picture ?>" alt="Image" class="img-fluid">
               <div class="unit-1-text" style="min-height: 6rem;">
                 <strong class="text-primary mb-2 d-block">from Jakarta(CGK)</strong>

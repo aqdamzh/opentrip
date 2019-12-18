@@ -33,7 +33,7 @@ class Auth extends CI_Controller
 						redirect('admin/index');
 						break;
 					case 2 :
-						redirect('Welcome/index');
+						redirect('welcome/index');
 					default:
 						
 						break;
@@ -44,12 +44,12 @@ class Auth extends CI_Controller
 	public function logout_pengguna()
 	{
 		$this->session->sess_destroy();
-		redirect('Welcome/index');
+		redirect('welcome/index');
 	}
 	public function logout_admin()
 	{
 		$this->session->sess_destroy();
-		redirect('Welcome/index');
+		redirect('welcome/index');
 	}
 }
 
