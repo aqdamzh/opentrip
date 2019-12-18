@@ -18,8 +18,8 @@ class Destination_model extends CI_Model {
     }
 
     
-    public function getPrice($id, $date){
-        $sql = "select * from price natural join duration where destination_id = ? and departure = ?";
+    public function getTrip($id, $date){
+        $sql = "select * from trip natural join duration where destination_id = ? and departure = ?";
         $query = $this->db->query($sql, array($id, $date));
         return $query->result();
     }
@@ -35,8 +35,8 @@ class Destination_model extends CI_Model {
         return $query->row();
     }
 
-    public function input_price($data){
-        $this->db->insert('price', $data);
+    public function input_trip($data){
+        $this->db->insert('trip', $data);
     }
 
     public function inDestination($where){
@@ -54,8 +54,8 @@ class Destination_model extends CI_Model {
         $this->db->query($sql, array($data));
     }
 
-    public function deleteDestination_price($data){
-        $sql = "delete from price where destination_id = ? ";
+    public function deleteDestination_trip($data){
+        $sql = "delete from trip where destination_id = ? ";
         $this->db->query($sql, array($data));
     }
 

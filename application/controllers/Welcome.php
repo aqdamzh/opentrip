@@ -42,17 +42,17 @@ class Welcome extends CI_Controller {
 
 	public function detail($destination_id){
 		$data['destination'] = $this->destination_model->getDestination($destination_id);
-		$data['prices'] = $this->destination_model->getPrice($destination_id, null);
+		$data['trips'] = $this->destination_model->getTrip($destination_id, null);
 		$this->load->view('pengguna/header');
 		$this->load->view('destination_detail', $data);
 		$this->load->view('footer');
 	}
 
-	public function price_detail(){
+	public function trip_detail(){
 		$destination_id = $this->input->post('destination_id');
 		$date = $this->input->post('date');
 		$data['destination'] = $this->destination_model->getDestination($destination_id);
-		$data['prices'] = $this->destination_model->getPrice($destination_id, $date);
+		$data['trips'] = $this->destination_model->getTrip($destination_id, $date);
 		$this->load->view('pengguna/header');
 		$this->load->view('destination_detail', $data);
 		$this->load->view('footer');

@@ -5,7 +5,7 @@
 
             <div class="col-md-8" data-aos="fade-up" data-aos-delay="400">
               <h1 class="text-white font-weight-light">Add and Edit</h1>
-              <div><a href="#destination" class="mx-2 text-white"><strong>Destination</strong></a> <span class="mx-2 text-white">&bullet;</span> <a href="#price" class="text-white">Price</a></div>
+              <div><a href="#destination" class="mx-2 text-white"><strong>Destination</strong></a> <span class="mx-2 text-white">&bullet;</span> <a href="#trip" class="text-white">Trip</a></div>
               
             </div>
           </div>
@@ -62,14 +62,14 @@
     
     </div>
     
-    <div class="site-section bg-light " id="price">
+    <div class="site-section bg-light " id="trip">
       <div class="container">
         <div class="row">
           <div class="col-md-12 mb-5">
 
             
 
-            <form method="post" action="<?php echo base_url().'admin/add_price'; ?>" class="p-5 bg-white">
+            <form method="post" action="<?php echo base_url().'admin/add_trip'; ?>" class="p-5 bg-white">
               
               <div class="row form-group">
                 <div class="col-md-6 mb-3 mb-md-0">
@@ -100,8 +100,8 @@
               </div>
               <div class="row form-group">
                 <div class="col-md-6 mb-3 mb-md-0">
-                  <label class="text-black" for="pricee">Harga</label> 
-                  <input type="number" id="price" name="price" class="form-control px-2" placeholder="Price">
+                  <label class="text-black" for="trip">Trip</label> 
+                  <input type="number" id="trip" name="trip" class="form-control px-2" placeholder="Trip">
                 </div>
               </div>
               <div class="row form-group">

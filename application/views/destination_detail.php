@@ -21,7 +21,7 @@
 
             
 
-            <form method="post" action="<?php echo base_url().'Welcome/price_detail'; ?>" class="p-5 bg-white">
+            <form method="post" action="<?php echo base_url().'Welcome/trip_detail'; ?>" class="p-5 bg-white">
               
               <div class="row form-group">
                 <div class="col-md-6 mb-3 mb-md-0">
@@ -50,11 +50,11 @@
                       </tr>
                   </thead>
                   <tbody>
-                      <?php foreach ($prices as $price) : ?>
+                      <?php foreach ($trips as $trip) : ?>
                       <tr>
-                      <td><?php echo $price->departure ?></td>
-                      <td><?php echo $price->day ?> day, <?php echo $price->night ?> night</td>
-                      <td><?php echo $price->price ?></td>
+                      <td><?php echo $trip->departure ?></td>
+                      <td><?php echo $trip->day ?> day, <?php echo $trip->night ?> night</td>
+                      <td><?php echo $trip->price ?></td>
                       <td>
                       <a href="#" class="badge badge-danger">Book Sekarang!</a>
                       </td>

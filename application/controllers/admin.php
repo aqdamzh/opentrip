@@ -45,7 +45,7 @@ class Admin extends CI_Controller {
 		}
 	}
     
-    public function add_price(){
+    public function add_trip(){
 		if($this->session->userdata('role_id')==1){
 			$day = $this->input->post('day');
 			$night = $this->input->post('night');
@@ -54,15 +54,15 @@ class Admin extends CI_Controller {
 			$duration_id = $duration->duration_id;
 			$destination_id = $this->input->post('destination_id');
 			$departure = $this->input->post('departure');
-			$price = $this->input->post('price');
+			$trip = $this->input->post('trip');
 	
 			$data = array(
-				'price'			    => $price,
+				'trip'			    => $trip,
 				'destination_id'	=> $destination_id,
 				'duration_id'		=> $duration_id,
 				'departure'		    => $departure,
 			);
-			$this->destination_model->input_price($data);
+			$this->destination_model->input_trip($data);
 			redirect('admin/index');
 		}else{
 			$this->load->view('404');
@@ -108,7 +108,7 @@ class Admin extends CI_Controller {
 		if($this->session->userdata('role_id')==1){
 			$destination_id = $this->uri->segment(3);
 			$this->destination_model->deleteDestination($destination_id);
-			$this->destination_model->deleteDestination_price($destination_id);
+			$this->destination_model->deleteDestination_trip($destination_id);
 			redirect('admin/destination');
 		}else{
 			$this->load->view('404');
