@@ -5,6 +5,10 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
+		if($this->session->userdata('role_id')==1){
+			redirect('admin/index');
+		}else{
+
 			$this->load->library('pagination');
 
 			$config['base_url'] = site_url('welcome/index');
@@ -38,6 +42,7 @@ class Welcome extends CI_Controller {
 			$this->load->view('pengguna/header');
 			$this->load->view('home', $data);
 			$this->load->view('footer');
+		}
 	}
 
 	public function detail($destination_id){

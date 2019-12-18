@@ -21,7 +21,7 @@
 
             
 
-            <form method="post" action="<?php echo base_url().'Welcome/trip_detail'; ?>" class="p-5 bg-white">
+            <form method="post" action="<?php echo base_url().'welcome/trip_detail'; ?>" class="p-5 bg-white">
               
               <div class="row form-group">
                 <div class="col-md-6 mb-3 mb-md-0">

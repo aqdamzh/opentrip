@@ -100,8 +100,8 @@
               </div>
               <div class="row form-group">
                 <div class="col-md-6 mb-3 mb-md-0">
-                  <label class="text-black" for="trip">Trip</label> 
-                  <input type="number" id="trip" name="trip" class="form-control px-2" placeholder="Trip">
+                  <label class="text-black" for="price">Harga</label> 
+                  <input type="number" id="price" name="price" class="form-control px-2" placeholder="Price">
                 </div>
               </div>
               <div class="row form-group">

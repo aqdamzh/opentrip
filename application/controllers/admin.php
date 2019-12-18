@@ -54,10 +54,10 @@ class Admin extends CI_Controller {
 			$duration_id = $duration->duration_id;
 			$destination_id = $this->input->post('destination_id');
 			$departure = $this->input->post('departure');
-			$trip = $this->input->post('trip');
+			$price = $this->input->post('price');
 	
 			$data = array(
-				'trip'			    => $trip,
+				'price'			    => $price,
 				'destination_id'	=> $destination_id,
 				'duration_id'		=> $duration_id,
 				'departure'		    => $departure,
