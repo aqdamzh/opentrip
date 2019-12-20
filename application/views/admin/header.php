@@ -54,20 +54,18 @@
             <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
 
               <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-                <li class="active">
-                  <a href="<?php echo base_url() ?>admin">Home</a>
+                <li>
+                  <a href="<?php echo base_url() ?>admin">Destinasi</a>
                 </li>
-                <li class="has-children">
-                  <a href="destination.html">Destinasi</a>
-                  <ul class="dropdown">
-                    <li><a href="#">Populer</a></li>
-                    <li><a href="#">Lokal</a></li>
-                    <li><a href="#">Luar Negeri</a></li>
-                  </ul>
+                <li>
+                  <a href="<?php echo base_url() ?>admin\perjalanan">Jadwal Perjalanan</a>
                 </li>
-                <li><a href="about.html">Tentang Kami</a></li>               
-                <li><a href="contact.html">Kontak</a></li>
-                <!-- <li><a href="booking.html">Book Online</a></li> -->
+                <li>
+                  <a href="<?php echo base_url() ?>admin\guide">Jadwal Guide</a>
+                </li>              
+                <li>
+                  <a href="<?php echo base_url() ?>admin\booking">List Booking</a>
+                </li>
               </ul>
             </nav>
           </div>

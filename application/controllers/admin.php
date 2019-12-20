@@ -6,11 +6,10 @@ class Admin extends CI_Controller {
 	{
 		if($this->session->userdata('role_id')==1){
 			$this->load->library('pagination');
-
 			$config['base_url'] = site_url('admin/index');
 			$config['total_rows'] = $this->destination_model->countAllDestination();
-			$config['per_page'] = 6;
-			$choice = $config["total_rows"] / $config["per_page"];
+			$config['per_page'] = 8;
+			$choice = 6;
 			$config["num_links"] = floor($choice);
 			$config['first_link']       = 'First';
 			$config['last_link']        = 'Last';
@@ -44,26 +43,158 @@ class Admin extends CI_Controller {
 			$this->load->view('404');
 		}
 	}
+
+	public function perjalanan(){
+		if($this->session->userdata('role_id')==1){
+
+			$this->load->library('pagination');
+			$config['base_url'] = site_url('admin/perjalanan');
+			$config['total_rows'] = $this->destination_model->countAlltrip();
+			$config['per_page'] = 8;
+			$config["num_links"] = 6;
+			$config['first_link']       = 'First';
+			$config['last_link']        = 'Last';
+			$config['next_link']        = 'Next';
+			$config['prev_link']        = 'Prev';
+			$config['full_tag_open']    = '<div class="pagging text-center"><nav><ul class="pagination justify-content-center">';
+			$config['full_tag_close']   = '</ul></nav></div>';
+			$config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
+			$config['num_tag_close']    = '</span></li>';
+			$config['cur_tag_open']     = '<li class="page-item active"><span class="page-link">';
+			$config['cur_tag_close']    = '<span class="sr-only">(current)</span></span></li>';
+			$config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
+			$config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
+			$config['prev_tag_open']    = '<li class="page-item"><span class="page-link">';
+			$config['prev_tagl_close']  = '</span>Next</li>';
+			$config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
+			$config['first_tagl_close'] = '</span></li>';
+			$config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
+			$config['last_tagl_close']  = '</span></li>';
+	
+			$this->pagination->initialize($config);
+	
+			$data['page'] = $this->uri->segment(3);
+			$data['trips'] = $this->destination_model->getTrips($config['per_page'], $data['page']);
+			$data['destinations'] = $this->destination_model->getAllDestination();
+			$data['guides'] = $this->destination_model->getAllGuide();
+			$this->load->view('admin/header');
+			$this->load->view('admin/jadwal_perjalanan', $data);
+			$this->load->view('footer');
+		}else{
+			$this->load->view('404');
+		}
+	}
+
+	public function guide(){
+		if($this->session->userdata('role_id')==1){
+			$this->load->library('pagination');
+			$config['base_url'] = site_url('admin/guide');
+			$config['total_rows'] = $this->destination_model->countAllGuideSchedule();
+			$config['per_page'] = 8;
+			$choice = 6;
+			$config["num_links"] = floor($choice);
+			$config['first_link']       = 'First';
+			$config['last_link']        = 'Last';
+			$config['next_link']        = 'Next';
+			$config['prev_link']        = 'Prev';
+			$config['full_tag_open']    = '<div class="pagging text-center"><nav><ul class="pagination justify-content-center">';
+			$config['full_tag_close']   = '</ul></nav></div>';
+			$config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
+			$config['num_tag_close']    = '</span></li>';
+			$config['cur_tag_open']     = '<li class="page-item active"><span class="page-link">';
+			$config['cur_tag_close']    = '<span class="sr-only">(current)</span></span></li>';
+			$config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
+			$config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
+			$config['prev_tag_open']    = '<li class="page-item"><span class="page-link">';
+			$config['prev_tagl_close']  = '</span>Next</li>';
+			$config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
+			$config['first_tagl_close'] = '</span></li>';
+			$config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
+			$config['last_tagl_close']  = '</span></li>';
+	
+			$this->pagination->initialize($config);
+	
+			$data['page'] = $this->uri->segment(3);
+			$data['schedules'] = $this->destination_model->getGuideSchedules($config['per_page'], $data['page']);
+			$this->load->view('admin/header');
+			$this->load->view('admin/jadwal_guide', $data);
+			$this->load->view('footer');
+
+		}else{
+			$this->load->view('404');
+		}
+	}
+
+	public function booking(){
+		if($this->session->userdata('role_id')==1){
+			$this->load->library('pagination');
+			$config['base_url'] = site_url('admin/booking');
+			$config['total_rows'] = $this->destination_model->countAllBooking();
+			$config['per_page'] = 8;
+			$choice = 6;
+			$config["num_links"] = floor($choice);
+			$config['first_link']       = 'First';
+			$config['last_link']        = 'Last';
+			$config['next_link']        = 'Next';
+			$config['prev_link']        = 'Prev';
+			$config['full_tag_open']    = '<div class="pagging text-center"><nav><ul class="pagination justify-content-center">';
+			$config['full_tag_close']   = '</ul></nav></div>';
+			$config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
+			$config['num_tag_close']    = '</span></li>';
+			$config['cur_tag_open']     = '<li class="page-item active"><span class="page-link">';
+			$config['cur_tag_close']    = '<span class="sr-only">(current)</span></span></li>';
+			$config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
+			$config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
+			$config['prev_tag_open']    = '<li class="page-item"><span class="page-link">';
+			$config['prev_tagl_close']  = '</span>Next</li>';
+			$config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
+			$config['first_tagl_close'] = '</span></li>';
+			$config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
+			$config['last_tagl_close']  = '</span></li>';
+	
+			$this->pagination->initialize($config);
+	
+			$data['page'] = $this->uri->segment(3);
+			$data['bookings'] = $this->destination_model->getBookings($config['per_page'], $data['page']);
+			$this->load->view('admin/header');
+			$this->load->view('admin/list_booking', $data);
+			$this->load->view('footer');
+
+		}else{
+			$this->load->view('404');
+		}
+	}
     
     public function add_trip(){
 		if($this->session->userdata('role_id')==1){
+			$departure = $this->input->post('departure');
 			$day = $this->input->post('day');
 			$night = $this->input->post('night');
-	
-			$duration = $this->destination_model->getDurationID($day, $night);
-			$duration_id = $duration->duration_id;
-			$destination_id = $this->input->post('destination_id');
-			$departure = $this->input->post('departure');
-			$price = $this->input->post('price');
-	
-			$data = array(
-				'price'			    => $price,
-				'destination_id'	=> $destination_id,
-				'duration_id'		=> $duration_id,
-				'departure'		    => $departure,
-			);
-			$this->destination_model->input_trip($data);
-			redirect('admin/index');
+			$guide1 = $this->input->post('guide1');
+			$guide2 = $this->input->post('guide2');
+			if(!($guide1==$guide2)){
+				$inSchedule = $this->destination_model->inSchedule($departure, $day);
+			}else{
+				$inSchedule = 99;
+			}
+			if($inSchedule==0){
+				$duration = $this->destination_model->getDurationID($day, $night);
+				$duration_id = $duration->duration_id;
+				$destination_id = $this->input->post('destination_id');
+				$price = $this->input->post('price');
+		
+				$data = array(
+					'price'			    => $price,
+					'destination_id'	=> $destination_id,
+					'duration_id'		=> $duration_id,
+					'departure_date'	=> $departure,
+				);
+				$this->destination_model->input_trip($data);
+				redirect('admin/perjalanan');
+			}else{
+				echo "JADWAL GUIDE BENTROK!"; die();
+			}
+
 		}else{
 			$this->load->view('404');
 		}
@@ -94,7 +225,7 @@ class Admin extends CI_Controller {
 					'picture' => $picture,
 				);
 				$this->destination_model->input_destination($data);
-				redirect('admin/destination');
+				redirect('admin');
 			}else{
 				echo "DESTINASI SUDAH ADA!"; die();
 			}
@@ -109,7 +240,18 @@ class Admin extends CI_Controller {
 			$destination_id = $this->uri->segment(3);
 			$this->destination_model->deleteDestination($destination_id);
 			$this->destination_model->deleteDestination_trip($destination_id);
-			redirect('admin/destination');
+			redirect('admin');
+		}else{
+			$this->load->view('404');
+		}
+
+	}
+
+	public function delete_perjalanan(){
+		if($this->session->userdata('role_id')==1){
+			$trip_id = $this->uri->segment(3);
+			$this->destination_model->deleteTrip($trip_id);
+			redirect('admin/perjalanan');
 		}else{
 			$this->load->view('404');
 		}

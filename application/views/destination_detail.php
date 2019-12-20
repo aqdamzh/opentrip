@@ -43,16 +43,16 @@
                 <table class="table">
                   <thead class="thead-dark">
                       <tr>
-                      <th scope="col">Departure</th>
-                      <th scope="col">Duration</th>
-                      <th scope="col">Price</th>
+                      <th scope="col">Keberangkatan</th>
+                      <th scope="col">Durasi</th>
+                      <th scope="col">Harga</th>
                       <th scope="col">Action</th>
                       </tr>
                   </thead>
                   <tbody>
                       <?php foreach ($trips as $trip) : ?>
                       <tr>
-                      <td><?php echo $trip->departure ?></td>
+                      <td><?php echo $trip->departure_date ?></td>
                       <td><?php echo $trip->day ?> day, <?php echo $trip->night ?> night</td>
                       <td><?php echo $trip->price ?></td>
                       <td>
