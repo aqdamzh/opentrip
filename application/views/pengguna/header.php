@@ -78,8 +78,9 @@
                 <?php if($this->session->userdata('email')) { ?>
                     <!--Disini buat header profil setelah login-->
                     <li class="dropdown user user-menu ">
-                      <a href="#" class="dropdown-toggle text-dark" data-toggle="dropdown">              
-                        <img src="" class="user-image" alt="User Image">              
+                      <a href="#" class="dropdown-toggle text-dark" data-toggle="dropdown">   
+                        <span><?php echo $nama_profile->full_name ?></span> 
+                               
                       </a>
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                           <a class="dropdown-item" href=""><!--gambar dari table-->

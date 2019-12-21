@@ -77,7 +77,7 @@
                     <!--Disini buat header profil setelah login-->
                     <li class="dropdown user user-menu ">
                       <a href="#" class="dropdown-toggle text-dark" data-toggle="dropdown">              
-                        <img src="" class="user-image" alt="User Image">              
+                        <img src="<?php echo base_url() ?>assets/images/<?php $arr_gambar ?>" class="user-image" alt="User Image">              
                       </a>
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                           <a class="dropdown-item" href=""><!--gambar dari table-->
