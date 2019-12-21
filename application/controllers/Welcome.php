@@ -11,8 +11,10 @@ class Welcome extends CI_Controller {
 
 			$this->load->library('pagination');
 
+			$data['filterDestination']='';
+
 			$config['base_url'] = site_url('welcome/index');
-			$config['total_rows'] = $this->destination_model->countAllDestination();
+			$config['total_rows'] = $this->destination_model->countAllDestination($data['filterDestination']);
 			$config['per_page'] = 6;
 			$choice = $config["total_rows"] / $config["per_page"];
 			$config["num_links"] = floor($choice);
@@ -38,7 +40,7 @@ class Welcome extends CI_Controller {
 			$this->pagination->initialize($config);
 	
 			$data['page'] = $this->uri->segment(3);
-			$data['destinations'] = $this->destination_model->getDestinations($config['per_page'], $data['page']);
+			$data['destinations'] = $this->destination_model->getDestinations($config['per_page'], $data['page'], $data['filterDestination']);
 			$id = $this->session->userdata('customer_id');
 			$data['nama_profile'] = $this->model_user->getNameProfile($id);
 			$this->load->view('pengguna/header',$data);
@@ -49,8 +51,7 @@ class Welcome extends CI_Controller {
 
 	public function detail($destination_id){
 		$data['destination'] = $this->destination_model->getDestination($destination_id);
-		$data['trips'] = $this->destination_model->getTrip($destination_id, null);
-		$this->load->library('session');
+		$data['trips'] = $this->destination_model->getTrip($destination_id);
 		$id = $this->session->userdata('customer_id');
 		$arr_nama_profile = $this->model_user->getNameProfile($id);
 		$data['nama_profile'] = $arr_nama_profile->full_name;
