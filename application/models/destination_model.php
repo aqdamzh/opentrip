@@ -13,49 +13,57 @@ class Destination_model extends CI_Model {
         return $query->result();
     }
 
-    public function getGuideSchedules($limit, $start){
-        $sql = "select guideSchedule_id,g.*,name,date, date+day as return from guide_schedule natural join trip natural join guide g natural join destination natural join duration limit ? offset ?";
-        $query = $this->db->query($sql, array($limit, $start));
+    public function getGuideSchedules($limit, $start, $filterDestination = ''){
+        $sql = "select guideSchedule_id,g.*,name,date, date+day as return from guide_schedule natural join trip natural join guide g natural join destination natural join duration where name ilike ? limit ? offset ?";
+        $query = $this->db->query($sql, array('%'.$filterDestination.'%', $limit, $start));
         return $query->result();
     }
 
-    public function getDestinations($limit, $start){
-        $sql = "select * from destination natural join country limit ? offset ?";
-        $query = $this->db->query($sql, array($limit, $start));
+    public function getDestinations($limit, $start, $filterDestination = ''){
+        $sql = "select * from destination natural join country where name ilike ? limit ? offset ?";
+        $query = $this->db->query($sql, array('%'.$filterDestination.'%', $limit, $start));
         return $query->result();
     }
 
-    public function getBookings($limit, $start){
-        $sql = "select first_name, last_name, name, amount_people, amount, payment_date, method, tujuan_pembayaran, status from payment natural join booking natural join customer natural join trip natural join destination natural join payment_gateway natural join payment_method limit ? offset ?";
-        $query = $this->db->query($sql, array($limit, $start));
+    public function getBookings($limit, $start, $filterDestination){
+        $sql = "select first_name, last_name, name, amount_people, amount, payment_date, method, tujuan_pembayaran, status from payment natural join booking natural join customer natural join trip natural join destination natural join payment_gateway natural join payment_method where name ilike ? limit ? offset ?";
+        $query = $this->db->query($sql, array('%'.$filterDestination.'%', $limit, $start));
         return $query->result();
     }
 
-    public function getTrips($limit, $start){
-        $sql = "select * from trip natural join duration limit ? offset ?";
-        $query = $this->db->query($sql, array($limit, $start));
+    public function getTrips($limit, $start, $filterDestination = '', $filterTglMin = null, $filterTglMax = null , $filterDay = null, $filterNight = null, $filterPriceMin = null, $filterPriceMax = null){
+        $sql = "select * from trip natural join duration natural join destination where name ilike ? and departure_date > to_date(COALESCE(?, '0001-01-01'), 'YYYY-MM-DD') and departure_date < to_date(COALESCE(?, '9999-12-30'), 'YYYY-MM-DD') and coalesce(day = ?, true) and coalesce(night = ?, true) and price > coalesce( ?, 0) and price < coalesce( ?, 999999999999) limit ? offset ?";
+        $query = $this->db->query($sql, array('%'.$filterDestination.'%', $filterTglMin, $filterTglMax, $filterDay, $filterNight, $filterPriceMin, $filterPriceMax, $limit, $start));
         return $query->result();
     }
 
-    public function countAllDestination(){
-        return $this->db->get('destination')->num_rows();
+    public function countAllDestination($filterDestination = ''){
+        $sql = "select * from guide_schedule natural join trip natural join guide g natural join destination natural join duration where name ilike ?";
+        $query = $this->db->query($sql, array('%'.$filterDestination.'%'));
+        return $query->num_rows();
     }
 
-    public function countAllTrip(){
-        return $this->db->get('trip')->num_rows();
+    public function countAllTrip($filterDestination = '', $filterTglMin = null, $filterTglMax = null , $filterDay = null, $filterNight = null, $filterPriceMin = null, $filterPriceMax = null ){
+        $sql = "select * from trip natural join duration natural join destination where name ilike ? and departure_date > to_date(COALESCE(?, '0001-01-01'), 'YYYY-MM-DD') and departure_date < to_date(COALESCE(?, '9999-12-30'), 'YYYY-MM-DD') and coalesce(day = ?, true) and coalesce(night = ?, true) and price > coalesce( ?, 0) and price < coalesce( ?, 999999999999)";
+        $query = $this->db->query($sql, array('%'.$filterDestination.'%', $filterTglMin, $filterTglMax, $filterDay, $filterNight, $filterPriceMin, $filterPriceMax));
+        return $query->num_rows();
     }
 
-    public function countAllGuideSchedule(){
-        return $this->db->get('guide_schedule')->num_rows();
+    public function countAllGuideSchedule($filterDestination = ''){
+        $sql = "select * from trip natural join duration natural join destination where name ilike ? ";
+        $query = $this->db->query($sql, array('%'.$filterDestination.'%'));
+        return $query->num_rows();
     }
 
-    public function countAllBooking(){
-        return $this->db->get('booking')->num_rows();
+    public function countAllBooking($filterDestination = ''){
+        $sql = "select * from payment natural join booking natural join customer natural join trip natural join destination natural join payment_gateway natural join payment_method where name ilike ? ";
+        $query = $this->db->query($sql, array('%'.$filterDestination.'%'));
+        return $query->num_rows();
     }
 
     
     public function getTrip($id, $date){
-        $sql = "select * from trip natural join duration where destination_id = ? and departure = ?";
+        $sql = "select * from trip natural join duration where destination_id = ? and departure_date = ?";
         $query = $this->db->query($sql, array($id, $date));
         return $query->result();
     }
