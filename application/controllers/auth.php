@@ -9,7 +9,8 @@ class Auth extends CI_Controller
         
         if($this->form_validation->run() == FALSE)
 		{
-			$this->load->view('header');
+
+			$this->load->view('pengguna/header');
 			$this->load->view('home');
 			$this->load->view('footer');
         }
@@ -28,6 +29,7 @@ class Auth extends CI_Controller
 			{
 				$this->session->set_userdata('email',$auth->email);
 				$this->session->set_userdata('role_id',$auth->role_id);
+				$this->session->set_userdata('customer_id',$auth->customer_id);
 				switch ($auth->role_id) {
 					case 1:
 						redirect('admin/index');
@@ -51,6 +53,14 @@ class Auth extends CI_Controller
 	{
 		$this->session->sess_destroy();
 		redirect('welcome/index');
+	}
+	public function profil()
+	{
+		$this->load->library('session');
+		$id = $this->session->userdata('customer_id');
+		$nama_profile = $this->model_user->getNameProfile($customer_id)->full_name;
+
+		
 	}
 }
 

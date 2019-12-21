@@ -20,7 +20,7 @@ class Test extends CI_Controller {
 	 */
 	public function index()
 	{
-        $data['test'] = $this->destination_model->getrip();
+        $data['test'] = $this->model_user->getNameProfile(2);
 		$this->load->view('test', $data);
 	}
 }

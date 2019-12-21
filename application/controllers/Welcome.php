@@ -39,7 +39,9 @@ class Welcome extends CI_Controller {
 	
 			$data['page'] = $this->uri->segment(3);
 			$data['destinations'] = $this->destination_model->getDestinations($config['per_page'], $data['page']);
-			$this->load->view('pengguna/header');
+			$id = $this->session->userdata('customer_id');
+			$data['nama_profile'] = $this->model_user->getNameProfile($id);
+			$this->load->view('pengguna/header',$data);
 			$this->load->view('home', $data);
 			$this->load->view('footer');
 		}
@@ -48,7 +50,11 @@ class Welcome extends CI_Controller {
 	public function detail($destination_id){
 		$data['destination'] = $this->destination_model->getDestination($destination_id);
 		$data['trips'] = $this->destination_model->getTrip($destination_id, null);
-		$this->load->view('pengguna/header');
+		$this->load->library('session');
+		$id = $this->session->userdata('customer_id');
+		$arr_nama_profile = $this->model_user->getNameProfile($id);
+		$data['nama_profile'] = $arr_nama_profile->full_name;
+		$this->load->view('pengguna/header',$data);
 		$this->load->view('destination_detail', $data);
 		$this->load->view('footer');
 	}
@@ -58,7 +64,11 @@ class Welcome extends CI_Controller {
 		$date = $this->input->post('date');
 		$data['destination'] = $this->destination_model->getDestination($destination_id);
 		$data['trips'] = $this->destination_model->getTrip($destination_id, $date);
-		$this->load->view('pengguna/header');
+		$this->load->library('session');
+		$id = $this->session->userdata('customer_id');
+		$arr_nama_profile = $this->model_user->getNameProfile($id);
+		$data['nama_profile'] = $arr_nama_profile->full_name;
+		$this->load->view('pengguna/header',$data);
 		$this->load->view('destination_detail', $data);
 		$this->load->view('footer');
 	}
