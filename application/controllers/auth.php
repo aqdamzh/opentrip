@@ -9,9 +9,9 @@ class Auth extends CI_Controller
         
         if($this->form_validation->run() == FALSE)
 		{
-			$this->load->view('header');
+			/*$this->load->view('pengguna/header');
 			$this->load->view('home');
-			$this->load->view('footer');
+			$this->load->view('footer');*/
         }
         else{
 			$auth = $this->model_auth->cek_login();

@@ -38,7 +38,7 @@ class Destination_model extends CI_Model {
     }
 
     public function countAllDestination($filterDestination = ''){
-        $sql = "select * from guide_schedule natural join trip natural join guide g natural join destination natural join duration where name ilike ?";
+        $sql = "select * from destination natural join country where name ilike ? ";
         $query = $this->db->query($sql, array('%'.$filterDestination.'%'));
         return $query->num_rows();
     }
@@ -50,7 +50,7 @@ class Destination_model extends CI_Model {
     }
 
     public function countAllGuideSchedule($filterDestination = ''){
-        $sql = "select * from trip natural join duration natural join destination where name ilike ? ";
+        $sql = "select * from guide_schedule natural join trip natural join guide g natural join destination natural join duration where name ilike ? ";
         $query = $this->db->query($sql, array('%'.$filterDestination.'%'));
         return $query->num_rows();
     }
@@ -62,9 +62,9 @@ class Destination_model extends CI_Model {
     }
 
     
-    public function getTrip($id, $date){
-        $sql = "select * from trip natural join duration where destination_id = ? and departure_date = ?";
-        $query = $this->db->query($sql, array($id, $date));
+    public function getTrip($id){
+        $sql = "select * from trip natural join duration where destination_id = ?";
+        $query = $this->db->query($sql, array($id));
         return $query->result();
     }
     public function getDestination($id){
