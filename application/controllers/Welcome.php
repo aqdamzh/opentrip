@@ -40,15 +40,10 @@ class Welcome extends CI_Controller {
 			$this->pagination->initialize($config);
 	
 			$data['page'] = $this->uri->segment(3);
-<<<<<<< HEAD
 			$data['destinations'] = $this->destination_model->getDestinations($config['per_page'], $data['page'], $data['filterDestination']);
-			$this->load->view('pengguna/header');
-=======
-			$data['destinations'] = $this->destination_model->getDestinations($config['per_page'], $data['page']);
 			$id = $this->session->userdata('customer_id');
 			$data['nama_profile'] = $this->model_user->getNameProfile($id);
 			$this->load->view('pengguna/header',$data);
->>>>>>> d8fa08dafd70600f144cadf2122fd3a203f7347b
 			$this->load->view('home', $data);
 			$this->load->view('footer');
 		}
@@ -56,17 +51,11 @@ class Welcome extends CI_Controller {
 
 	public function detail($destination_id){
 		$data['destination'] = $this->destination_model->getDestination($destination_id);
-<<<<<<< HEAD
 		$data['trips'] = $this->destination_model->getTrip($destination_id);
-		$this->load->view('pengguna/header');
-=======
-		$data['trips'] = $this->destination_model->getTrip($destination_id, null);
-		$this->load->library('session');
 		$id = $this->session->userdata('customer_id');
 		$arr_nama_profile = $this->model_user->getNameProfile($id);
 		$data['nama_profile'] = $arr_nama_profile->full_name;
 		$this->load->view('pengguna/header',$data);
->>>>>>> d8fa08dafd70600f144cadf2122fd3a203f7347b
 		$this->load->view('destination_detail', $data);
 		$this->load->view('footer');
 	}
