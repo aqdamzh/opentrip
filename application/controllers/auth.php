@@ -7,14 +7,8 @@ class Auth extends CI_Controller
         $this->form_validation->set_rules('email','Email','required',['required' => 'Username Wajib Diisi']);
         $this->form_validation->set_rules('password','Password','required',['required' => 'Password Wajib Diisi']);
         
-        if($this->form_validation->run() == FALSE)
-		{
-<<<<<<< HEAD
+        if($this->form_validation->run() == FALSE){
 			$this->load->view('pengguna/header');
-=======
-
-			$this->load->view('pengguna/header');
->>>>>>> d8fa08dafd70600f144cadf2122fd3a203f7347b
 			$this->load->view('home');
 			$this->load->view('footer');
         }
