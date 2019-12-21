@@ -10,8 +10,8 @@
               </div>
               <div class="col-md-6 col-lg-6 ">
                 <ul class="list-unstyled">
-                  <li><a href="#">Tentang Kami</a></li>
-                  <li><a href="#">Kontak Kami</a></li>
+                  <li><a target="_blank" href="https://www.instagram.com/famstraveller/">Tentang Kami</a></li>
+                  <li><a target="_blank" href="https://www.instagram.com/famstraveller/">Kontak Kami</a></li>
                 </ul>
               </div>
             </div>

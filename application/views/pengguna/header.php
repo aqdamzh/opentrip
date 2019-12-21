@@ -65,8 +65,8 @@
                     <li><a href="#">Luar Negeri</a></li>
                   </ul>
                 </li>
-                <li><a href="about.html">Tentang Kami</a></li>               
-                <li><a href="contact.html">Kontak</a></li>
+                <li><a target="_blank" href="https://www.instagram.com/famstraveller/">Tentang Kami</a></li>               
+                <li><a target="_blank" href="https://www.instagram.com/famstraveller/">Kontak</a></li>
                 <!-- <li><a href="booking.html">Book Online</a></li> -->
               </ul>
             </nav>
