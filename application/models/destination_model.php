@@ -24,9 +24,9 @@ class Destination_model extends CI_Model {
         $this->db->query($sql, array($guide_id, $guideschedule_id));
     }
 
-    public function getGuideSchedules($limit, $start, $filterDestination = ''){
-        $sql = "select guideSchedule_id,g.*,name,date, date+day as return from guide_schedule natural join trip natural join guide g natural join destination natural join duration where name ilike ? limit ? offset ?";
-        $query = $this->db->query($sql, array('%'.$filterDestination.'%', $limit, $start));
+    public function getGuideSchedules($limit, $start, $filterDestination = '', $filterGuide = ''){
+        $sql = "select guideSchedule_id,g.*,name,date, date+day as return from guide_schedule natural join trip natural join guide g natural join destination natural join duration where name ilike ? and nama ilike ? limit ? offset ?";
+        $query = $this->db->query($sql, array('%'.$filterDestination.'%', '%'.$filterGuide.'%', $limit, $start));
         return $query->result();
     }
 
@@ -66,9 +66,9 @@ class Destination_model extends CI_Model {
         return $query->num_rows();
     }
 
-    public function countAllGuideSchedule($filterDestination = ''){
-        $sql = "select * from guide_schedule natural join trip natural join guide g natural join destination natural join duration where name ilike ? ";
-        $query = $this->db->query($sql, array('%'.$filterDestination.'%'));
+    public function countAllGuideSchedule($filterDestination = '', $filterGuide = ''){
+        $sql = "select * from guide_schedule natural join trip natural join guide g natural join destination natural join duration where name ilike ? and nama ilike ?";
+        $query = $this->db->query($sql, array('%'.$filterDestination.'%', '%'.$filterGuide.'%'));
         return $query->num_rows();
     }
 

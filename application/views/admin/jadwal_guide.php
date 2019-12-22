@@ -71,13 +71,19 @@
         <form action="<?= base_url('admin/filter_guide'); ?>" method="post">
         <div class="row form-group">
           <div class="col-md-12 mb-3 mb-md-0">
-            <label class="text-black" for="filterDestinatio">Destination</label> 
+            <label class="text-black" for="filterDestination">Destinasi</label> 
             <input type="text" id="filterDestination" name="filterDestination" class="form-control px-2" placeholder="Destination Name" autocomplete="off">
           </div>
         </div>
-          <div class="row justify-content-center mb-3 mt-3">
-          <input type="submit" class="btn btn-primary" name="submit" placeholder="Filter">
+        <div class="row form-group">
+          <div class="col-md-12 mb-3 mb-md-0">
+            <label class="text-black" for="guide">Nama Guide</label> 
+            <input type="text" id="filterGuide" name="filterGuide" class="form-control px-2" placeholder="Guide Name" autocomplete="off">
           </div>
+        </div>
+        <div class="row justify-content-center mb-3 mt-3">
+          <input type="submit" class="btn btn-primary" name="submit" placeholder="Filter">
+        </div>
         </form>
         </div>
       </div>
