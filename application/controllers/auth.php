@@ -52,18 +52,7 @@ class Auth extends CI_Controller
 		$this->session->sess_destroy();
 		redirect('welcome/index');
 	}
-	public function profil()
-	{
-		$this->load->library('session');
-		$id = $this->session->userdata('customer_id');
-		$data['nama_profile'] = $this->model_user->getNameProfile($id);
-		$data['nama_kota'] = $this->model_user->getNameCity();
-		$this->load->view('pengguna/header',$data);
-		$this->load->view('pengguna/profil',$data);
-		$this->load->view('footer');
-
-		
-	}
+	
 }
 
 ?>

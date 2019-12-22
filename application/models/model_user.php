@@ -14,6 +14,11 @@ class Model_user extends CI_Model
         $query = $this->db->query($sql);
         return $query->result();
     }
+    public function update_customer($where, $data){
+        $this->db->where($where);
+        $this->db->update('customer', $data);
+        
+    }
 }
 
 ?>
