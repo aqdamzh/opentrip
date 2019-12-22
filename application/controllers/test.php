@@ -18,7 +18,7 @@ class Test extends CI_Controller {
 	 */
 	public function index()
 	{
-		$data['test'] = $this->destination_model->getAllgateway();
+		$data['test'] = $this->destination_model->getDestinationImage(2)->picture;
 		$this->load->view('test', $data);
 	}
 }

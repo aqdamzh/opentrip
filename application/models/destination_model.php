@@ -6,11 +6,17 @@ class Destination_model extends CI_Model {
         $query = $this->db->query($sql);
         return $query->result();
     }
-
+    public function getDestinationImage($where)
+    {
+        $sql = "SELECT picture,background from destination where destination_id = ?";
+        $query = $this->db->query($sql, array($where));
+        return $query->row();
+    }
     public function getAllGuide(){
         $sql = "select * from guide";
         $query = $this->db->query($sql);
         return $query->result();
+        return $query->row();
     }
 
     public function getAllGateway(){

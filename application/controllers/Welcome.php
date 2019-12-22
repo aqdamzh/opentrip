@@ -58,6 +58,11 @@ class Welcome extends CI_Controller {
 		$this->load->view('destination_detail', $data);
 		$this->load->view('footer');
 	}
+	public function gambarDestinasi($destination_id)
+	{
+		$data['destination'] = $this->destination_model->getDestinationImage($destination_id);
+
+	}
 	public function book_now(){
 		if($this->session->userdata('role_id')==2){
 			$trip_id = $this->uri->segment(3);
