@@ -13,10 +13,27 @@ class Destination_model extends CI_Model {
         return $query->result();
     }
 
+    public function getGuideInDate($berangkat, $pulang){
+        $sql = "select distinct guide_id, nama from guide_schedule natural join trip natural join guide natural join destination natural join duration where ( date + day < ? or date > ? ) and ( ( not date+day < ? ) or ( not date > ? ) )";
+        $query = $this->db->query($sql, array($berangkat, $pulang, $berangkat, $pulang));
+        return $query->result();
+    }
+
+    public function updateJadwalGuide($guideschedule_id, $guide_id){
+        $sql = "update guide_schedule set guide_id = ? where guideschedule_id = ?";
+        $this->db->query($sql, array($guide_id, $guideschedule_id));
+    }
+
     public function getGuideSchedules($limit, $start, $filterDestination = ''){
         $sql = "select guideSchedule_id,g.*,name,date, date+day as return from guide_schedule natural join trip natural join guide g natural join destination natural join duration where name ilike ? limit ? offset ?";
         $query = $this->db->query($sql, array('%'.$filterDestination.'%', $limit, $start));
         return $query->result();
+    }
+
+    public function getGuideSchedule($where){
+        $sql = "select guideSchedule_id,g.*,name,date, date+day as return from guide_schedule natural join trip natural join guide g natural join destination natural join duration where guideSchedule_id = ?";
+        $query = $this->db->query($sql, array($where));
+        return $query->row();
     }
 
     public function getDestinations($limit, $start, $filterDestination = ''){

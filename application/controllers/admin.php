@@ -313,6 +313,33 @@ class Admin extends CI_Controller {
 		}
 	}
 
+	public function guide_edit(){
+		if($this->session->userdata('role_id')==1){
+
+			$guideschedule_id = $this->uri->segment(3);
+			$data['guideschedule'] = $this->destination_model->getGuideSchedule($guideschedule_id);
+			$data['guides'] = $this->destination_model->getGuideInDate($data['guideschedule']->date, $data['guideschedule']->return);
+			$this->load->view('admin/header');
+			$this->load->view('admin/edit_guide', $data);
+			$this->load->view('footer');
+
+		}else{
+			$this->load->view('404');
+		}
+	}
+
+	public function editJadwalGuide(){
+		if($this->session->userdata('role_id')==1){
+			$guideschedule_id = $this->uri->segment(3);
+			$guide_id = $this->input->post('guide');
+			$this->destination_model->updateJadwalGuide($guideschedule_id, $guide_id);
+			redirect('admin/guide_edit/'.$guideschedule_id);
+
+		}else{
+			$this->load->view('404');
+		}
+	}
+
 	public function booking(){
 		if($this->session->userdata('role_id')==1){
 			$this->load->library('pagination');

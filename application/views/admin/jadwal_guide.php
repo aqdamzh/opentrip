@@ -42,7 +42,7 @@
                           <td><?php echo $schedule->date?></td>
                           <td><?php echo $schedule->return?></td>
                           <td>
-                          <a href="<?php echo base_url() ?>admin\detail_edit\<?php echo $schedule->guideschedule_id ?>" class="badge badge-success">Edit</a>
+                          <a href="<?php echo base_url() ?>admin\guide_edit\<?php echo $schedule->guideschedule_id ?>" class="badge badge-success">Ganti Guide</a>
                           </td>
                           </tr>
                           <?php endforeach; ?>

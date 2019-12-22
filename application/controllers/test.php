@@ -20,7 +20,8 @@ class Test extends CI_Controller {
 	 */
 	public function index()
 	{
-        $data['test'] = $this->model_user->getNameProfile(2);
+		$data['schedule'] = $this->destination_model->getGuideSchedule(2);
+        $data['test'] = $this->destination_model->getGuideInDate('2017-08-4', '2017-08-07');
 		$this->load->view('test', $data);
 	}
 }
