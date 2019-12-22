@@ -57,13 +57,8 @@
                 <li class="active">
                   <a href="<?php echo base_url() ?>">Home</a>
                 </li>
-                <li class="has-children">
-                  <a href="destination.html">Destinasi</a>
-                  <ul class="dropdown">
-                    <li><a href="#">Populer</a></li>
-                    <li><a href="#">Lokal</a></li>
-                    <li><a href="#">Luar Negeri</a></li>
-                  </ul>
+                <li class="">
+                  <a href="<?php echo base_url() ?>">Destinasi</a>
                 </li>
                 <li><a target="_blank" href="https://www.instagram.com/famstraveller/">Tentang Kami</a></li>               
                 <li><a target="_blank" href="https://www.instagram.com/famstraveller/">Kontak</a></li>
