@@ -13,6 +13,19 @@ class Destination_model extends CI_Model {
         return $query->result();
     }
 
+    public function getAllGateway(){
+        $sql = "select * from payment_gateway";
+        $query = $this->db->query($sql);
+        return $query->result();
+    }
+
+    public function getGateway($id){
+        $sql = "select * from payment_gateway where gateway_id = ?";
+        $query = $this->db->query($sql, array($id));
+        return $query->row();
+    }
+
+
     public function getGuideInDate($berangkat, $pulang){
         $sql = "select distinct guide_id, nama from guide_schedule natural join trip natural join guide natural join destination natural join duration where ( date + day < ? or date > ? ) and ( ( not date+day < ? ) or ( not date > ? ) )";
         $query = $this->db->query($sql, array($berangkat, $pulang, $berangkat, $pulang));
@@ -79,11 +92,18 @@ class Destination_model extends CI_Model {
     }
 
     
-    public function getTrip($id){
+    public function getDestinationTrip($id){
         $sql = "select * from trip natural join duration where destination_id = ?";
         $query = $this->db->query($sql, array($id));
         return $query->result();
     }
+
+    public function getTrip($id){
+        $sql = "select * from trip natural join destination natural join duration where trip_id = ?";
+        $query = $this->db->query($sql, array($id));
+        return $query->row();
+    }
+
     public function getDestination($id){
         $sql = "select * from destination natural join country where destination_id = ?";
         $query = $this->db->query($sql, array($id));
@@ -110,6 +130,24 @@ class Destination_model extends CI_Model {
         $sql = "select date, date+day as return from guide_schedule natural join trip natural join duration where date <= ? + ? and date+day > ? + ?";
         $query = $this->db->query($sql, array($departure, $day, $departure, $day));
         return $query->num_rows();
+    }
+
+    public function inBooking($trip_id, $customer_id, $amount_people, $amount_price){
+        $sql1 = "select * from booking order by booking_id desc limit 1";
+        $sql2 = "insert into booking(booking_id,trip_id,customer_id,amount_people,amount_price,status) values(?,?,?,?,?,'Menunggu Konfirmasi')";
+        $query = $this->db->query($sql1);
+        $booking_id = $query->row()->booking_id + 1;
+        
+        $this->db->query($sql2, array($booking_id,$trip_id,$customer_id,$amount_people,$amount_price));
+        return $booking_id;
+    }
+
+    public function inPayment($gateway_id,$payment_date,$amount_price, $booking_id){
+        $sql1 = "select * from payment order by payment_id desc limit 1";
+        $sql2 = "insert into payment(booking_id, gateway_id, payment_date, amount, payment_id) values(?,?,?,?,?)";
+        $query = $this->db->query($sql1);
+        $payment_id = $query->row()->payment_id + 1;
+        $this->db->query($sql2, array($booking_id,$gateway_id,$payment_date,$amount_price,$payment_id));
     }
 
     public function input_destination($data){

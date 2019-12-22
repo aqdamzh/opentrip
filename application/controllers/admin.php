@@ -341,7 +341,9 @@ class Admin extends CI_Controller {
 			$guideschedule_id = $this->uri->segment(3);
 			$data['guideschedule'] = $this->destination_model->getGuideSchedule($guideschedule_id);
 			$data['guides'] = $this->destination_model->getGuideInDate($data['guideschedule']->date, $data['guideschedule']->return);
-			$this->load->view('admin/header');
+			$id = $this->session->userdata('customer_id');
+			$data['nama_profile'] = $this->model_user->getNameProfile(1)->full_name;
+			$this->load->view('admin/header', $data);
 			$this->load->view('admin/edit_guide', $data);
 			$this->load->view('footer');
 
