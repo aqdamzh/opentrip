@@ -239,9 +239,10 @@ class Admin extends CI_Controller {
 			$this->load->library('pagination');
 
 			$data['filterDestination']='';
+			$data['filterGuide']='';
 
 			$config['base_url'] = site_url('admin/guide');
-			$config['total_rows'] = $this->destination_model->countAllGuideSchedule($data['filterDestination']);
+			$config['total_rows'] = $this->destination_model->countAllGuideSchedule($data['filterDestination'], $data['filterGuide']);
 			$config['per_page'] = 6;
 			$choice = 6;
 			$config["num_links"] = floor($choice);
@@ -267,7 +268,7 @@ class Admin extends CI_Controller {
 			$this->pagination->initialize($config);
 	
 			$data['page'] = $this->uri->segment(3);
-			$data['schedules'] = $this->destination_model->getGuideSchedules($config['per_page'], $data['page'], $data['filterDestination']);
+			$data['schedules'] = $this->destination_model->getGuideSchedules($config['per_page'], $data['page'], $data['filterDestination'], $data['filterGuide']);
 			$this->load->library('session');
 			$id = $this->session->userdata('customer_id');
 			$data['nama_profile'] = $this->model_user->getNameProfile(1)->full_name;
@@ -286,13 +287,16 @@ class Admin extends CI_Controller {
 
 			if($this->input->post('submit')){
 				$data['filterDestination'] = $this->input->post('filterDestination');
+				$data['filterGuide'] = $this->input->post('filterGuide');
 				$_SESSION['filterDestination']=$data['filterDestination'];
+				$_SESSION['filterGuide']=$data['filterGuide'];
 			}else{
 				$data['filterDestination'] = $_SESSION['filterDestination'];
+				$data['filterGuide'] = $_SESSION['filterGuide'];
 			}
 
 			$config['base_url'] = site_url('admin/filter_guide');
-			$config['total_rows'] = $this->destination_model->countAllGuideSchedule($data['filterDestination']);
+			$config['total_rows'] = $this->destination_model->countAllGuideSchedule($data['filterDestination'], $data['filterGuide']);
 			$config['per_page'] = 6;
 			$choice = 6;
 			$config["num_links"] = floor($choice);
@@ -318,13 +322,40 @@ class Admin extends CI_Controller {
 			$this->pagination->initialize($config);
 	
 			$data['page'] = $this->uri->segment(3);
-			$data['schedules'] = $this->destination_model->getGuideSchedules($config['per_page'], $data['page'], $data['filterDestination']);
+			$data['schedules'] = $this->destination_model->getGuideSchedules($config['per_page'], $data['page'], $data['filterDestination'], $data['filterGuide']);
 			$this->load->library('session');
 			$id = $this->session->userdata('customer_id');
 			$data['nama_profile'] = $this->model_user->getNameProfile(1)->full_name;
 			$this->load->view('admin/header',$data);
 			$this->load->view('admin/jadwal_guide', $data);
 			$this->load->view('footer');
+
+		}else{
+			$this->load->view('404');
+		}
+	}
+
+	public function guide_edit(){
+		if($this->session->userdata('role_id')==1){
+
+			$guideschedule_id = $this->uri->segment(3);
+			$data['guideschedule'] = $this->destination_model->getGuideSchedule($guideschedule_id);
+			$data['guides'] = $this->destination_model->getGuideInDate($data['guideschedule']->date, $data['guideschedule']->return);
+			$this->load->view('admin/header');
+			$this->load->view('admin/edit_guide', $data);
+			$this->load->view('footer');
+
+		}else{
+			$this->load->view('404');
+		}
+	}
+
+	public function editJadwalGuide(){
+		if($this->session->userdata('role_id')==1){
+			$guideschedule_id = $this->uri->segment(3);
+			$guide_id = $this->input->post('guide');
+			$this->destination_model->updateJadwalGuide($guideschedule_id, $guide_id);
+			redirect('admin/guide_edit/'.$guideschedule_id);
 
 		}else{
 			$this->load->view('404');

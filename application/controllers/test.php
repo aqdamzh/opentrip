@@ -1,8 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class Test extends CI_Controller {
-
 	/**
 	 * Index Page for this controller.
 	 *
@@ -20,8 +18,7 @@ class Test extends CI_Controller {
 	 */
 	public function index()
 	{
-		$data['test'] = $this->model_user->getNameCity();
-				
+		$data['test'] = $this->model_user->getNameProfile(1)->full_name;
 		$this->load->view('test', $data);
 	}
 }
