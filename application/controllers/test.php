@@ -18,7 +18,7 @@ class Test extends CI_Controller {
 	 */
 	public function index()
 	{
-		$data['test'] = $this->model_user->getNameProfile(1)->full_name;
+		$data['test'] = $this->destination_model->getAllgateway();
 		$this->load->view('test', $data);
 	}
 }

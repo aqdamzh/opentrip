@@ -4,7 +4,7 @@
           <div class="row align-items-center justify-content-center text-center">
           </div>
         </div>
-      </div>  
+    </div>  
 
 
     <div class="site-section bg-light " id="trip">
