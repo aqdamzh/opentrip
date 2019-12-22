@@ -39,7 +39,10 @@ class Admin extends CI_Controller {
 			$data['page'] = $this->uri->segment(3);
 			$data['destinations_p'] = $this->destination_model->getDestinations($config['per_page'], $data['page'], $data['filterDestination']);
 			$data['destinations'] = $this->destination_model->getAllDestination();
-			$this->load->view('admin/header');
+			$this->load->library('session');
+			$id = $this->session->userdata('customer_id');
+			$data['nama_profile'] = $this->model_user->getNameProfile(1)->full_name;
+			$this->load->view('admin/header',$data);
 			$this->load->view('admin/admin_view', $data);
 			$this->load->view('footer');
 
@@ -89,7 +92,10 @@ class Admin extends CI_Controller {
 			$data['page'] = $this->uri->segment(3);
 			$data['destinations_p'] = $this->destination_model->getDestinations($config['per_page'], $data['page'], $data['filterDestination']);
 			$data['destinations'] = $this->destination_model->getAllDestination();
-			$this->load->view('admin/header');
+			$this->load->library('session');
+			$id = $this->session->userdata('customer_id');
+			$data['nama_profile'] = $this->model_user->getNameProfile(1)->full_name;
+			$this->load->view('admin/header',$data);
 			$this->load->view('admin/admin_view', $data);
 			$this->load->view('footer');
 
@@ -140,7 +146,10 @@ class Admin extends CI_Controller {
 			$data['trips'] = $this->destination_model->getTrips($config['per_page'], $data['page'], $data['filterDestination'], $data['filterTglMin'], $data['filterTglMax'], $data['filterDay'], $data['filterNight'], $data['filterPriceMin'], $data['filterPriceMax']);
 			$data['destinations'] = $this->destination_model->getAllDestination();
 			$data['guides'] = $this->destination_model->getAllGuide();
-			$this->load->view('admin/header');
+			$this->load->library('session');
+			$id = $this->session->userdata('customer_id');
+			$data['nama_profile'] = $this->model_user->getNameProfile(1)->full_name;
+			$this->load->view('admin/header',$data);
 			$this->load->view('admin/jadwal_perjalanan', $data);
 			$this->load->view('footer');
 		}else{
@@ -213,7 +222,10 @@ class Admin extends CI_Controller {
 			$data['trips'] = $this->destination_model->getTrips($config['per_page'], $data['page'], $data['filterDestination'], $data['filterTglMin'], $data['filterTglMax'], $data['filterDay'], $data['filterNight'], $data['filterPriceMin'], $data['filterPriceMax']);
 			$data['destinations'] = $this->destination_model->getAllDestination();
 			$data['guides'] = $this->destination_model->getAllGuide();
-			$this->load->view('admin/header');
+			$this->load->library('session');
+			$id = $this->session->userdata('customer_id');
+			$data['nama_profile'] = $this->model_user->getNameProfile(1)->full_name;
+			$this->load->view('admin/header',$data);
 			$this->load->view('admin/jadwal_perjalanan', $data);
 			$this->load->view('footer');
 		}else{
@@ -256,7 +268,10 @@ class Admin extends CI_Controller {
 	
 			$data['page'] = $this->uri->segment(3);
 			$data['schedules'] = $this->destination_model->getGuideSchedules($config['per_page'], $data['page'], $data['filterDestination']);
-			$this->load->view('admin/header');
+			$this->load->library('session');
+			$id = $this->session->userdata('customer_id');
+			$data['nama_profile'] = $this->model_user->getNameProfile(1)->full_name;
+			$this->load->view('admin/header',$data);
 			$this->load->view('admin/jadwal_guide', $data);
 			$this->load->view('footer');
 
@@ -304,7 +319,10 @@ class Admin extends CI_Controller {
 	
 			$data['page'] = $this->uri->segment(3);
 			$data['schedules'] = $this->destination_model->getGuideSchedules($config['per_page'], $data['page'], $data['filterDestination']);
-			$this->load->view('admin/header');
+			$this->load->library('session');
+			$id = $this->session->userdata('customer_id');
+			$data['nama_profile'] = $this->model_user->getNameProfile(1)->full_name;
+			$this->load->view('admin/header',$data);
 			$this->load->view('admin/jadwal_guide', $data);
 			$this->load->view('footer');
 
@@ -374,7 +392,9 @@ class Admin extends CI_Controller {
 	
 			$data['page'] = $this->uri->segment(3);
 			$data['bookings'] = $this->destination_model->getBookings($config['per_page'], $data['page'], $data['filterDestination']);
-			$this->load->view('admin/header');
+			$id = $this->session->userdata('customer_id');
+			$data['nama_profile'] = $this->model_user->getNameProfile(1)->full_name;
+			$this->load->view('admin/header',$data);
 			$this->load->view('admin/list_booking', $data);
 			$this->load->view('footer');
 
@@ -423,7 +443,9 @@ class Admin extends CI_Controller {
 	
 			$data['page'] = $this->uri->segment(3);
 			$data['bookings'] = $this->destination_model->getBookings($config['per_page'], $data['page'], $data['filterDestination']);
-			$this->load->view('admin/header');
+			$id = $this->session->userdata('customer_id');
+			$data['nama_profile'] = $this->model_user->getNameProfile(1)->full_name;
+			$this->load->view('admin/header',$data);
 			$this->load->view('admin/list_booking', $data);
 			$this->load->view('footer');
 
@@ -529,7 +551,9 @@ class Admin extends CI_Controller {
 		if($this->session->userdata('role_id')==1){
 			$destination_id = $this->uri->segment(3);
 			$data['destination'] = $this->destination_model->getDestination($destination_id);
-			$this->load->view('admin/header');
+			$id = $this->session->userdata('customer_id');
+			$data['nama_profile'] = $this->model_user->getNameProfile(1)->full_name;
+			$this->load->view('admin/header',$data);
 			$this->load->view('admin/destination_detail', $data);
 			$this->load->view('footer');
 		}else{
