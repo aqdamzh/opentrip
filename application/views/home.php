@@ -74,17 +74,17 @@
               <div class="unit-4-icon mr-4"><span class="text-primary flaticon-airplane"></span></div>
               <div>
                 <h3>Air Ticketing</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
+                <p>Biaya perjalanan pesawat sudah termasuk ke dalam paket liburan.</p>
                 <p><a href="#">Learn More</a></p>
               </div>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
             <div class="unit-4 d-flex">
-              <div class="unit-4-icon mr-4"><span class="text-primary flaticon-ship"></span></div>
+              <div class="unit-4-icon mr-4"><span class="text-primary flaticon-sailboat"></span></div>
               <div>
-                <h3>Cruises</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
+                <h3>Sea Explorations</h3>
+                <p>Melayani trip dengan iternary penjelajahan laut.</p>
                 <p><a href="#">Learn More</a></p>
               </div>
             </div>
@@ -93,8 +93,8 @@
             <div class="unit-4 d-flex">
               <div class="unit-4-icon mr-4"><span class="text-primary flaticon-route"></span></div>
               <div>
-                <h3>Tour Packages</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
+                <h3>Tour Guide Packages</h3>
+                <p>Biaya Tour Guide sudah termasuk ke dalam paket liburan kami.</p>
                 <p><a href="#">Learn More</a></p>
               </div>
             </div>
@@ -106,31 +106,22 @@
               <div class="unit-4-icon mr-4"><span class="text-primary flaticon-hotel"></span></div>
               <div>
                 <h3>Hotel Accomodations</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
+                <p>Akomodasi penginapan memiliki kualitas yang baik dan sudah termasuk ke dalam paket liburan.</p>
                 <p><a href="#">Learn More</a></p>
               </div>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
             <div class="unit-4 d-flex">
-              <div class="unit-4-icon mr-4"><span class="text-primary flaticon-sailboat"></span></div>
+              <div class="unit-4-icon mr-4"><span class="text-primary "></span></div>
               <div>
-                <h3>Sea Explorations</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
-                <p><a href="#">Learn More</a></p>
+                <h3></h3>
+                <p></p>
+                <p></p>
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
-            <div class="unit-4 d-flex">
-              <div class="unit-4-icon mr-4"><span class="text-primary flaticon-ski"></span></div>
-              <div>
-                <h3>Ski Experiences</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
-                <p><a href="#">Learn More</a></p>
-              </div>
-            </div>
-          </div>
+
 
         </div>
       </div>
