@@ -1,1 +1,5 @@
-<?php print_r($test); ?>
+<?php foreach ($test as $tst) 
+    {
+	    echo $tst->nama; 
+	}
+?>

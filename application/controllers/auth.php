@@ -56,7 +56,11 @@ class Auth extends CI_Controller
 	{
 		$this->load->library('session');
 		$id = $this->session->userdata('customer_id');
-		$nama_profile = $this->model_user->getNameProfile($customer_id)->full_name;
+		$data['nama_profile'] = $this->model_user->getNameProfile($id);
+		$data['nama_kota'] = $this->model_user->getNameCity();
+		$this->load->view('pengguna/header',$data);
+		$this->load->view('pengguna/profil',$data);
+		$this->load->view('footer');
 
 		
 	}

@@ -20,7 +20,8 @@ class Test extends CI_Controller {
 	 */
 	public function index()
 	{
-        $data['test'] = $this->model_user->getNameProfile(1)->full_name;
+		$data['test'] = $this->model_user->getNameCity();
+				
 		$this->load->view('test', $data);
 	}
 }
