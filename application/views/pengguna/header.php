@@ -153,14 +153,14 @@
         </button>
       </div>
       <div class="modal-body">
-      <form>
+      <form method="post" action="<?php echo base_url('registrasi/index') ?>">
         <div class="form-group">
           <label for="nama_depan">Nama Depan</label>
-          <input type="text" class="form-control" id="nama_depan">
+          <input type="text" class="form-control" id="nama_depan" name="first_name" placeholder="Nama Depan">
         </div>
         <div class="form-group">
           <label for="nama_belakang">Nama Belakang</label>
-          <input type="text" class="form-control" id="nama_belakang">
+          <input type="text" class="form-control" id="nama_belakang" name="last_name" placeholder="Nama Belakang">
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Email</label>
@@ -170,7 +170,7 @@
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1">
+          <input type="password" class="form-control" id="exampleInputPassword1" name ="password" placeholder="Password">
         </div>
         <button type="submit" class="btn btn-primary">Daftar</button>
         <button type="button" class="btn btn-link" data-toggle="modal" data-target="#login_akun"

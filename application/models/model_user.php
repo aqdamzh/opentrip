@@ -19,6 +19,17 @@ class Model_user extends CI_Model
         $this->db->update('customer', $data);
         
     }
+    public function addCustomer($email,$password,$first_name,$last_name)
+    {
+        $sql1 = "select * from customer order by customer_id desc limit 1";
+        $sql2 = "INSERT INTO email values(?,?,?,?,?,?)";
+        $sql3 = "INSERT INTO customer values(?,?,?,?,?,?)";
+        $query = $this->db->query($sql1);
+        $email_id = $query->row()->customer_id + 1;
+        $customer_id = $query->row()->customer_id + 1;
+        $this->db->query($sql2, array($email_id,$email,$password,$customer_id,2,NULL));
+        $this->db->query($sql3, array($customer_id,$first_name,$last_name,NULL,NULL,NULL));
+    }
 }
 
 ?>
