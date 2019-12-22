@@ -53,22 +53,7 @@ class Welcome extends CI_Controller {
 		$data['destination'] = $this->destination_model->getDestination($destination_id);
 		$data['trips'] = $this->destination_model->getTrip($destination_id);
 		$id = $this->session->userdata('customer_id');
-		$arr_nama_profile = $this->model_user->getNameProfile($id);
-		$data['nama_profile'] = $arr_nama_profile->full_name;
-		$this->load->view('pengguna/header',$data);
-		$this->load->view('destination_detail', $data);
-		$this->load->view('footer');
-	}
-
-	public function trip_detail(){
-		$destination_id = $this->input->post('destination_id');
-		$date = $this->input->post('date');
-		$data['destination'] = $this->destination_model->getDestination($destination_id);
-		$data['trips'] = $this->destination_model->getTrip($destination_id, $date);
-		$this->load->library('session');
-		$id = $this->session->userdata('customer_id');
-		$arr_nama_profile = $this->model_user->getNameProfile($id);
-		$data['nama_profile'] = $arr_nama_profile->full_name;
+		$data['nama_profile'] = $this->model_user->getNameProfile($id);
 		$this->load->view('pengguna/header',$data);
 		$this->load->view('destination_detail', $data);
 		$this->load->view('footer');
