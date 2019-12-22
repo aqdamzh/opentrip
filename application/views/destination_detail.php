@@ -38,7 +38,7 @@
                       <td><?php echo $trip->day ?> day, <?php echo $trip->night ?> night</td>
                       <td><?php echo $trip->price ?></td>
                       <td>
-                      <a href="#" class="badge badge-danger">Book Sekarang!</a>
+                      <a href="<?php echo base_url() ?>welcome/book_now/<?php echo $trip->trip_id ?>" class="badge badge-danger">Book Sekarang!</a>
                       </td>
                       </tr>
                       <?php endforeach; ?>
