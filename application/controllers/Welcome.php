@@ -108,8 +108,6 @@ class Welcome extends CI_Controller {
 			$data['nama_profile'] = $this->model_user->getNameProfile($data['customer_id']);
 			$booking = $this->destination_model->inBooking($data['trip_id'],$data['customer_id'],$data['amount_people'],$data['amount_people']);
 			$this->destination_model->inPayment($data['gateway_id'],$data['payment_date'],$data['amount_price'],$booking);
-
-			print_r($data);
 		}else{
 			$this->load->view('404');
 		}

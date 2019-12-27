@@ -132,9 +132,9 @@ class Destination_model extends CI_Model {
         return $query->num_rows();
     }
 
-    public function inSchedule($where){
-        $sql = "select date, date+day as return from guide_schedule natural join trip natural join duration where date <= ? + ? and date+day > ? + ?";
-        $query = $this->db->query($sql, array($departure, $day, $departure, $day));
+    public function inSchedule($departure, $day){
+        $sql = "select date, date+day as return from guide_schedule natural join trip natural join duration where date > dateadd(day,?,?) and date+day < ?";
+        $query = $this->db->query($sql, array($day, $departure, $departure));
         return $query->num_rows();
     }
 
